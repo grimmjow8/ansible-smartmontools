@@ -26,10 +26,10 @@ script:
   - echo whoami ; whoami
   - echo pwd ; pwd
   - echo ls ; ls -lhatr
-  - ansible-playbook -i tests/inventory --syntax-check tests/test.yml
-  - ansible-playbook -i tests/inventory --connection=local --extra-vars "__smartd_email=test@gmail.com" --become -vvvv tests/test.yml
+  - ansible-playbook -i tests/inventory --syntax-check test.yml
+  - ansible-playbook -i tests/inventory --connection=local --extra-vars "__smartd_email=test@gmail.com" --become -vvvv test.yml
   - >
-    ansible-playbook -i tests/inventory --connection=local --extra-vars "__smartd_email=test@gmail.com" --become -vvvv tests/test.yml
+    ansible-playbook -i tests/inventory --connection=local --extra-vars "__smartd_email=test@gmail.com" --become -vvvv test.yml
     | grep -q 'changed=0.*failed=0'
     && (echo 'playbook test: pass' && exit 0)
     || (echo 'playbook test: fail' && exit 1)
