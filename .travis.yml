@@ -11,6 +11,9 @@ addons:
     packages:
     - python-pip
 
+before_script:
+  - echo -e "Host localhost\n\tStrictHostKeyChecking no\n" >> ~/.ssh/conf
+  
 install:
   # Install ansible
   - pip install ansible
