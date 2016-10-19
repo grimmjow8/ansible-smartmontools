@@ -9,6 +9,7 @@ Requirements
 
 Variables
 ---------
+
 __smartd_email - smartd reporting email address
 
 Example Playbook
@@ -21,6 +22,7 @@ Example Playbook
 
 Testing
 -------
+
 \<path\>/ansible-smartmontools $ ansible-playbook test.yml 
 
 
