@@ -25,7 +25,6 @@ script:
   # Basic role syntax check
   - echo whoami ; whoami
   - echo pwd ; pwd
-  - echo ls ; ls -lhatr
   - ansible-playbook -i tests/inventory --syntax-check test.yml
   - ansible-playbook -i tests/inventory --connection=local --extra-vars "__smartd_email=test@gmail.com" --become -vvvv test.yml
   - >

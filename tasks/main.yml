@@ -15,11 +15,6 @@
   with_items:
     - smartmontools
 
-- name: ffffffffffffffffffffffffff
-  shell: pwd ; ls -lhatr ; ls -lahtr files/{{__smartd_basename}}
-  args:
-    warn: false
-
 - name: copy smartd.conf
   shell: mv {{__smartd_cfg_file}} {{__smartd_bkup_cfg_file}} ; cp -p files/{{__smartd_basename}} {{__smartd_cfg_file}}
   args:
