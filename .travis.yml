@@ -13,7 +13,7 @@ addons:
 
 before_script:
   # Disable host key checking for localhost
-  - echo -e "Host localhost\n\tStrictHostKeyChecking no\n" >> ~/.ssh/conf
+  - echo -e "Host localhost\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   
 install:
   # Install ansible
