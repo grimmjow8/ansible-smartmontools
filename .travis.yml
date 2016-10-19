@@ -12,6 +12,7 @@ addons:
     - python-pip
 
 before_script:
+  # Disable host key checking for localhost
   - echo -e "Host localhost\n\tStrictHostKeyChecking no\n" >> ~/.ssh/conf
   
 install:
