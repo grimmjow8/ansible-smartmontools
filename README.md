@@ -1,4 +1,4 @@
-## ansible-perl - [![Build Status](https://travis-ci.org/grimmjow8/ansible-smartmontools.png)](https://travis-ci.org/grimmjow8/ansible-smartmontools)
+## ansible-smartmontools - [![Build Status](https://travis-ci.org/grimmjow8/ansible-smartmontools.png)](https://travis-ci.org/grimmjow8/ansible-smartmontools)
 
 Ansible role installs smartmontools and sets smartd configuration.
 
