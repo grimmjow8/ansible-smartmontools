@@ -31,28 +31,31 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder ".", "/vagrant", id: "vagrant-root", disabled: true
 
   boxes.each do |opts|
-    config.vm.box = opts[:os]
-    config.vm.define opts[:name] do |config|
-      config.vm.hostname = opts[:name]
+    config.vm.define opts[:name] do |c|
+      c.vm.box      = opts[:os]
+      c.vm.hostname = opts[:name]
 
       # set memory for vms
-      config.vm.provider "virtualbox" do |v|
+      c.vm.provider "virtualbox" do |v|
         v.customize ["modifyvm", :id, "--memory", opts[:mem]]
         v.customize ["modifyvm", :id, "--cpus", opts[:cpu]]
       end
 
       # set network ips
-      config.vm.network :private_network, ip: opts[:eth1]
+      c.vm.network :private_network, ip: opts[:eth1]
 
       # deploy ansible files
-      config.vm.provision "file", source: "files", destination: "~/files"
+      c.vm.provision "file", source: "templates", destination: "~/templates"
 
       # provision ansible
-      config.vm.provision 'ansible' do |ansible|
+      c.vm.provision 'ansible' do |ansible|
         ansible.playbook = 'test.yml'
-        ansible.sudo = true
+        ansible.sudo     = true
 #        ansible.verbose = 'vvvvvv'
         ansible.host_key_checking = false
+        ansible.extra_vars  = {
+          __smartd_email: "test@gmail.com"
+        }
       end
     end
   end
